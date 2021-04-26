@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>My ToDo List</h1>
 
-<table class="table table-hovered">
+<table class="table table-bordered table-hover">
 
   <tbody>
     <% @lists.each do |list| %>
@@ -15,7 +15,7 @@
         </tr>
     <% else %>
         <tr>
-          <td class="striker"><%= link_to list.description, edit_list_path(list) %></td>
+          <td><%= link_to list.description, edit_list_path(list) %></td>
           <td>
             <center><%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></center>
           </td>
