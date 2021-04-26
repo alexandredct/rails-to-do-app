@@ -1,3 +1,4 @@
+
 <%= form_with(model: list) do |form| %>
   <% if list.errors.any? %>
     <div id="error_explanation">
@@ -11,12 +12,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label "Add new list item" %>
-    <%= form.text_field :description, class: "form-control"%>
-  </div>
-
-  <div class="actions form-group">
-    <%= form.submit "Add ToDo item"%>
+  <div class="form-inline my-2 my-lg-0">
+    <%= form.text_field :description, class: "form-control mr-sm-2"%>
+    <%= form.submit "Add ToDo item", class: 'btn btn-outline-success my-2 my-sm-0'%>
   </div>
 <% end %>
