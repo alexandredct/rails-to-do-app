@@ -2,7 +2,16 @@
 
 <h1>My ToDo List</h1>
 
-<table class="table table-bordered table-hover">
+
+<center>
+  <div class="card mt-5" style="width: 18rem;">
+    <div class="card-body">
+      <%= render 'form_index', list: @list %>
+    </div>
+  </div>
+</center>
+
+<table class="table table-bordered table-hover mt-5">
 
   <tbody>
     <% @lists.each do |list| %>
