@@ -2,28 +2,30 @@
 
 <h1>My ToDo List</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ToDo item</th>
-      <th>Completed</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table class="table table-hovered">
 
   <tbody>
     <% @lists.each do |list| %>
-      <tr>
-        <td><%= list.description %></td>
-        <td><%= list.completed %></td>
-        <td><%= link_to 'Show', list %></td>
-        <td><%= link_to 'Edit', edit_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if list.completed %>
+        <tr class="table-secondary">
+          <td class="striker"><%= link_to list.description, edit_list_path(list) %></td>
+          <td>
+            <center><%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></center>
+          </td>
+        </tr>
+    <% else %>
+        <tr>
+          <td class="striker"><%= link_to list.description, edit_list_path(list) %></td>
+          <td>
+            <center><%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></center>
+          </td>
+
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'Add ToDo item', new_list_path %>
+<%= link_to 'Add ToDo item', new_list_path, class: 'btn btn-primary' %>
