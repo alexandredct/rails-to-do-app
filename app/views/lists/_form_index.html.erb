@@ -12,10 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.text_field :description %>
+    <%= form.label "Add new list item" %>
+    <%= form.text_field :description, class: "form-control"%>
   </div>
 
-  <div class="actions">
+  <div class="actions form-group">
     <%= form.submit "Add ToDo item"%>
   </div>
 <% end %>
